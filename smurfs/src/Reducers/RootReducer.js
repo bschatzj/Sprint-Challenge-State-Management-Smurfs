@@ -2,6 +2,7 @@ import {
     FETCH_SMURF_ERROR,
     FETCH_SMURF_START,
     FETCH_SMURF_SUCCESS,
+    DELETE_SMURF,
     ADD_SMURF
 } from '../Actions/Actions'
 
@@ -34,6 +35,12 @@ export function reducer(state = initialState, action) {
                 smurf: [
                     ...state.smurf,
                     action.payload
+                ]
+            }
+        case DELETE_SMURF:
+            return{
+                smurf: [
+                    ...state.smurf
                 ]
             }
             default: 

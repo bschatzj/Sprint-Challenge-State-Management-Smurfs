@@ -17,23 +17,40 @@ function NewSmurf(props) {
     const [name, setName] = useState('');
     const [age, setAge] = useState('');
     const [height, setHeight] = useState('');
-    const handleNameChange = e => {
-        e.preventDefault();
-        setName(e.target.value)
-    }
+    
     const handleSubmit = (e) => {
         e.preventDefault();
+        if (name == '') {
+            return (
+                alert('Put in your name!!!')
+            )
+        }
+        if (age == '') {
+            return (
+                alert("Come on you're not that old")
+            )
+        }
+        if (height == '') {
+            return (
+                alert("We're all short... just add your height")
+            )
+        }
         props.addSmurf({
-          name: name,
-          age: age,
-          height: height + 'cm',
-          id: Date.now()
+            name: name,
+            age: age,
+            height: height + 'cm',
         });
         setName('')
         setAge('')
         setHeight('')
-      }
+        alert(`WELCOME ${name}!!!`)
+    }
 
+
+    const handleNameChange = e => {
+        e.preventDefault();
+        setName(e.target.value)
+    }
     const handleAgeChange = e => {
         e.preventDefault();
         setAge(e.target.value)
@@ -49,9 +66,9 @@ function NewSmurf(props) {
             <label>Name</label>
             <Input type='name' placeholder='Name' name='Name' value={name} onChange={handleNameChange} />
             <label>Age (years)</label>
-            <Input type='number' min= "0" max='500' placeholder='Age' name='Age' value={age} onChange={handleAgeChange} />
+            <Input type='number' min="0" max='500' placeholder='Age' name='Age' value={age} onChange={handleAgeChange} />
             <label>Height (cm) </label>
-            <Input type='number' min= '0' max= '100' placeholder='Height' name='Height' value={height} onChange={handleHeightChange} />
+            <Input type='number' min='0' max='100' placeholder='Height' name='Height' value={height} onChange={handleHeightChange} />
             <button onClick={handleSubmit}>Add Smurf</button>
         </Form>
     )

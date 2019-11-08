@@ -12,6 +12,8 @@ const SmurfDisplay = (props) => {
 
       if(props.smurf !== undefined) {
     return (
+      <>
+      <h1>SMURF VILLAGE :D</h1>
       <div>
       {props.smurf.map((smurfs) => {
          console.log(smurfs.name)
@@ -23,6 +25,7 @@ const SmurfDisplay = (props) => {
           </div>
         })}
         </div>
+        </>
     )
   }
   return(<div>Loading...</div>)
